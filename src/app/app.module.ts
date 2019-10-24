@@ -15,7 +15,19 @@ import {AppComponent } from './app.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent ],
+  declarations: [  AppComponent,
+    
+    bodycomponent,
+    screencomponent,
+    gridrowcomponent,
+    gridcolcomponent,
+    panelcomponent,
+    panelseccomponent
+    formcomponent,
+    secrowcomponent,
+    seccolcomponent,
+    inputcomponent,
+ ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
