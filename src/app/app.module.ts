@@ -7,7 +7,7 @@ import {gridcolcomponent} from'./scripts/gridcol/gridcol.component';
 import {gridrowcomponent} from'./scripts/gridrow/gridrow.component';
 import {inputcomponent} from'./scripts/input/input.component';
 import {panelcomponent} from'./scripts/panel/panel.component';
-import {panelseccomponent} from'./scripts/panelsec/panelsec.component';
+import {panelseccomponent}from'./scripts/panelsec/panelsec.component';
 import {screencomponent} from'./scripts/screen/screen.component';
 import {seccolcomponent} from'./scripts/seccol/seccol.component';
 import {secrowcomponent} from'./scripts/secrow/secrow.component';
@@ -22,7 +22,7 @@ import {AppComponent } from './app.component';
     gridrowcomponent,
     gridcolcomponent,
     panelcomponent,
-    panelseccomponent
+    panelseccomponent,
     formcomponent,
     secrowcomponent,
     seccolcomponent,
