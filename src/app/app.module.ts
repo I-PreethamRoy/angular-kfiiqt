@@ -31,6 +31,6 @@ import {AppComponent1 } from './app.component1';
     seccolcomponent,
     inputcomponent,
  ],
-  bootstrap:    [ AppComponent,AppComponent1 ]
+  bootstrap:    [ AppComponent1]
 })
 export class AppModule { }
