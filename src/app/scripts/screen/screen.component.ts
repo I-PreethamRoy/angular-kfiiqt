@@ -2,7 +2,7 @@ import { Component, } from '@angular/core';
 import { Input } from '@angular/core';
 
 @Component({
-  selector: 'app-screen',
+  selector: 'screencomponent',
   templateUrl: '../../screens/screen.component.html',
   styleUrls: ['../app.component.css']
 })

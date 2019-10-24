@@ -12,9 +12,12 @@ import {screencomponent} from'./scripts/screen/screen.component';
 import {seccolcomponent} from'./scripts/seccol/seccol.component';
 import {secrowcomponent} from'./scripts/secrow/secrow.component';
 import {AppComponent } from './app.component';
+import {AppComponent1 } from './app.component1';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule 
+  ],
   declarations: [  AppComponent,
     
     bodycomponent,
@@ -28,6 +31,6 @@ import {AppComponent } from './app.component';
     seccolcomponent,
     inputcomponent,
  ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent,AppComponent1 ]
 })
 export class AppModule { }
