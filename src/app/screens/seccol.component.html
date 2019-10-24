@@ -1,0 +1,121 @@
+<!-- <span id={{props.id}}>
+	<ng-content></ng-content>
+</span> -->
+
+<ng-container *ngIf="props.cntrType == 'FORM' && props.readOnly == 'Y';then getFormReadOnlyWrapper">
+</ng-container>
+
+<ng-container *ngIf="props.cntrType == 'FORM' && props.hrzntlGrouping == 'Y';then getFormHorizontalWrapper; else getGenericWrapper">
+</ng-container>
+
+<ng-template #getFormReadOnlyWrapper>
+	<ng-container *ngIf="props.fieldsetValue == 'Y';else nonFieldSetComp">
+		<span id={{props.id}} class={{props.class}}>
+			<fieldset>
+				<legend>{{props.legendValue}}</legend>
+				<ng-content></ng-content>
+			</fieldset>
+		</span>
+	</ng-container>
+</ng-template>
+
+<ng-template #nonFieldSetComp>
+	<span id={{props.id}} class={{props.class}}>
+			<!-- {React.Children.map(props.children, (child, index) => {
+				if (child.props.widgetcategory == "ELEMENT") {
+					return getChildElements(child, index, props, scrContext)
+				}
+			})} -->
+			<ng-content></ng-content>
+		</span>
+</ng-template>
+
+<ng-template #getFormHorizontalWrapper>
+	<ng-container *ngIf="props.fieldsetValue == 'Y';else horizontalNonFieldSetComp">
+		<span > <!-- {...props.ColWrapper.direct} -->
+			<fieldset>
+				<legend>{{props.legendValue}}</legend>
+				<ul class="eoc srb wrapped pri">
+					<li class={{props.grpLblWith}}>
+						<label id={{props.id}}_lbl class={{props.grpLblClass}} htmlFor={{props.id}}_lbl>{{props.legendValue}}
+						</label>
+					</li>
+					<li class={{props.grpRemainWidthCls}}>
+						<ul class="hrow">
+							<li class=""> 
+								<span ><!-- {...child.props.spanWrapper} -->
+									<ng-content></ng-content>
+								</span>
+								<ng-container *ngIf="props.hintRequired">
+									<span id={{props.id}}_hnt class="htx">{{props.hintValue}}
+									</span>
+								</ng-container>
+							</li>
+							
+							<!-- {React.Children.map(props.children, (child, index) => {
+								if (child.props.widgetcategory == "ELEMENT") {
+									return (
+										<li className=""> <span {...child.props.spanWrapper}>
+											{getChildElements(child, index, props, scrContext)}
+										</span>
+										{getHint(child.props,scrContext.rowIndex)}
+										</li>
+									)
+								}
+							})} -->
+						</ul>
+					</li>
+				</ul>
+			</fieldset>
+		</span>
+	</ng-container>
+</ng-template>
+
+<ng-template #horizontalNonFieldSetComp>
+	<span><!-- {...props.ColWrapper.direct} -->
+		 <!-- {horizontalcontent(props,scrContext)} -->
+		 <ul class="eoc srb wrapped pri">
+					<li class={{props.grpLblWith}}>
+						<label id={{props.id}}_lbl class={{props.grpLblClass}} htmlFor={{props.id}}_lbl>{{props.legendValue}}
+						</label>
+					</li>
+					<li class={{props.grpRemainWidthCls}}>
+						<ul class="hrow">
+							<li class=""> 
+								<span ><!-- {...child.props.spanWrapper} -->
+									<ng-content></ng-content>
+								</span>
+								<ng-container *ngIf="props.hintRequired">
+									<span id={{props.id}}_hnt class="htx">{{props.hintValue}}
+									</span>
+								</ng-container>
+							</li>
+							
+							<!-- {React.Children.map(props.children, (child, index) => {
+								if (child.props.widgetcategory == "ELEMENT") {
+									return (
+										<li className=""> <span {...child.props.spanWrapper}>
+											{getChildElements(child, index, props, scrContext)}
+										</span>
+										{getHint(child.props,scrContext.rowIndex)}
+										</li>
+									)
+								}
+							})} -->
+						</ul>
+					</li>
+				</ul>
+	 </span>
+</ng-template>
+<ng-template #getGenericWrapper>
+	<ng-container *ngIf="props.cntrType=='NAVBAR'">
+		<li><!-- {...props.ColWrapper.direct} -->
+			<ng-content></ng-content>
+		</li>
+	</ng-container>
+	<ng-container *ngIf="containerCheck()"><!-- <ng-container *ngIf="!props.cntrType=='NAVBAR'"> -->
+		<span class={{props.ColWrapper.direct.class}}><!-- {...props.ColWrapper.direct} -->
+			<ng-content></ng-content>
+		</span>
+	</ng-container>
+</ng-template>

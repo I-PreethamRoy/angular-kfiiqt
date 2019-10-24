@@ -1,0 +1,34 @@
+<ng-container *ngIf="props.cntrType=='FORM'">
+	<ul class={{props.wrapperClasses.class}} id={{props.id}}_ul>
+		<li class={{props.labelWrapper.direct.class}} >
+			<label id={{props.labelProps.direct.id}} for={{props.labelProps.direct.htmlFor}} class={{props.labelProps.direct.class}} ><!-- {...childProps.labelProps.direct} -->
+				<!-- {getLabelIcon(childProps)}
+				{childProps.labelProps.title} -->
+				{{props.labelProps.title}}
+			</label>
+		</li>
+		<li id={{props.contentWrapper.direct.id}} class={{props.contentWrapper.direct.class}}  ><!-- {...childProps.contentWrapper.direct} -->
+			<!-- {childProps.widgettype == "CHECKBOX" ?
+				(<span {...childProps.spanWrapper} id={reqId}>
+					{getChildElements(child, index, props, scrContext)}
+				</span>) :
+				getChildElements(child, index, props, scrContext)
+			}
+			{getHint(childProps,scrContext.rowIndex)} -->
+
+			<span class={{props.spanWrapper.class}}><!-- {...props.spanWrapper} -->
+				<!-- {isWrapped ? 
+					(<span {...props.elmWrapper.direct}>
+						{iconPosition == "LEFT" ? getInputIcon(props, id) : null}
+						{getInputWrapper(props, id, value)}
+						{iconPosition == "RIGHT" ? getInputIcon(props, id) : null}
+					</span>) : 
+					getInput(props, id, value)
+				} -->
+				<input id={{props.id}} class={{props.content.direct.class}} maxLength={{props.content.direct.maxLength}} placeholder={{props.content.direct.placeholder}} attr.enabled='true' value={{props.content.direct.value}} (click)="alertInp()"/><!-- {...props.content.direct} {...props.apzevents} -->
+			</span>
+
+		</li>
+	</ul>
+	
+</ng-container>

@@ -1,0 +1,30 @@
+<div *ngIf="ifCheckForPanelType(); then panelTemplate else tabTemplate"  id={{props.id}} class={{props.class}}>
+	<!-- <ng-content></ng-content> -->
+</div>
+
+<ng-template #tabTemplate>
+	<div *ngIf="panelType == 'TAB'">
+			<div id={{props.id}}>
+				<ul id={{props.id}} class="tabs" role="tablist">
+				</ul>
+				<div class="tabs-ctr">
+					<ng-content></ng-content>
+				</div>
+			</div>
+	</div>
+</ng-template>
+ <ng-template #panelTemplate>
+	<!-- <div *ngIf="panelType == 'TAB'">
+			<div id={{props.id}}>
+				<ul id={{props.id}} class="tabs" role="tablist">
+				</ul>
+				<div class="tabs-ctr">
+					<ng-content></ng-content>
+				</div>
+			</div>
+	</div> -->
+	<div id={{props.id}} class={{props.class}}>
+		<ng-content></ng-content>
+	</div>
+	<!-- <ng-content></ng-content> -->
+</ng-template> 

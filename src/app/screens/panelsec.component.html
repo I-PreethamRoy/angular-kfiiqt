@@ -1,0 +1,79 @@
+<div *ngIf="ifCheckForPanelType(); then panelSecTemplate else accordionTemplate" id={{props.id}} class={{props.class}}>
+	<!-- <ul *ngIf="props.titleValue" id={{props.id}}_ul class="ttl">
+		<li *ngIf="props.titleIcon" class="icn">
+			<svg> 
+				<use attr.xlink:href="{{props.titleIcon}}"></use>
+			</svg>
+		</li>
+		<li class="lbl">
+			<h4>{{props.titleValue}}</h4>
+		</li>
+	</ul>
+	<ng-content></ng-content> -->
+</div>
+<ng-template #panelSecTemplate>
+	<div id={{props.id}} class={{props.class}}>
+		<ul *ngIf="checkTitleValue(); then panelSecTitle" 
+		id={{props.id}}_ul class="ttl">
+			<li *ngIf="checkTitleIcon()" class="icn">
+				<svg> 
+					<use attr.xlink:href="{{props.titleIcon}}"></use>
+				</svg>
+			</li>
+			<li class="lbl">
+				<h4>{{props.titleValue}}</h4>
+			</li>
+		</ul>
+		<ng-content select="ng-container"></ng-content>
+	</div>
+</ng-template>
+
+<ng-template #panelSecContent>
+	<ng-content select=""></ng-content>
+</ng-template>
+
+
+
+<ng-template #panelSecTitle>
+	<ul id={{props.id}}_ul class="ttl">
+			<li *ngIf="checkTitleIcon()" class="icn">
+				<svg> 
+					<use attr.xlink:href="{{props.titleIcon}}"></use>
+				</svg>
+			</li>
+			<li class="lbl">
+				<h4>{{props.titleValue}}</h4>
+			</li>
+		</ul>
+</ng-template>
+
+<ng-template #accordionTemplate>
+<div *ngIf="panelType=='ACCORDION'" id={{props.id}}_div><!--  {...props.panelSection.direct} -->
+	<ul id={{props.id}}_ul  aria-selected="true" aria-expanded="true"  attr.aria-controls="{{props.id}}_ul"> <!-- {...props.ulWrapper} -->
+		<li *ngIf="props.hasTitleIcon && !ifCheckForPanelType()" id={{props.id}}_icon_li class="icn">
+            <svg role="presentation" aria-hidden="true" ><!-- {...props.titleIcon.direct} -->
+                <use attr.xlink:href="{{props.titleIconName}}" xlink:href=""></use>
+            </svg>
+		</li>
+		<li *ngIf="props.hasTitleIcon && ifCheckForPanelType()" id={{props.id}}_icon_li class="icn">
+			<svg role="presentation" aria-hidden="true"><!-- {...props.titleIcon.direct} -->
+				<use attr.xlink:href="{{props.titleIconName}}" xlink:href=""></use>
+			</svg>
+		</li>
+		<li id={{props.id}}_title_li class="lbl">
+			<h4 class="collapse">{{props.title}}</h4>
+		</li>
+		<li id={{props.id}}_tools_li class="tls">
+			<a class=acc-hd{{props.stateClass}}  aria-label="icon-chevron-down"  role="button">
+				<svg class="icon icon-chevron-down px24" aria-hidden="true">
+					<use attr.xlink:href="icon-chevron-down" xlink:href=""></use>
+				</svg>
+			</a>
+		</li>
+	</ul>
+	<div id={{props.id}} attr.aria-labelledby ="{{props.id}}_ul"><!-- {...props.accContentWrapper.direct} -->
+		<!-- {getChildrens()} -->
+		<ng-content></ng-content>
+	</div>
+</div>
+</ng-template>

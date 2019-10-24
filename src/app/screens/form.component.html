@@ -1,0 +1,21 @@
+ <div id={{props.id}} class={{props.class}}><!-- {...props.apzevents} -->
+    <ul *ngIf="titleValue" id={{props.id}}_title class="ttl">
+          <li class="ttl-ctr">
+            <ul class="ttv">
+                <li *ngIf="props.titleIcon" class="icn">
+                <svg aria-hidden="true" class="ett-icon icon-align-justify px24">
+                    <use attr.xlink:href="{{props.titleIcon}}" xlink:href=""></use>
+                  </svg>
+                </li>
+              
+              <li *ngIf="props.titleValue" class="lbl">
+                  <h4>{{props.titleValue}}</h4>
+              </li>
+            </ul>
+          </li>
+    </ul>
+    <ng-content></ng-content>
+<!--     <div>
+      <p>hello</p>
+    </div> -->
+    </div>

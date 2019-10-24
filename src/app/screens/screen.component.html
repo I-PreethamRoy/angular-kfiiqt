@@ -1,0 +1,8 @@
+<p id={{props.id}}>render here...</p>
+<div *ngIf="checkScreenType()"  class={{props.class}} id={{props.id}}>
+	<div id="backdrop" class="backdrop"></div>
+			<ng-content></ng-content>
+			<div id="Appzil_FirstPagetooltip" class="sno">
+	      <p id="tooltext"></p>
+	   </div>
+</div>
